@@ -1,5 +1,6 @@
 #include "game.h"
 #include <random>
+using namespace std;
 
 Game::Game()
 {
@@ -36,7 +37,7 @@ Block Game::GetRandomBlock()
     return block;
 }
 
-std::vector<Block> Game::GetAllBlocks()
+vector<Block> Game::GetAllBlocks()
 {
     return {IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock()};
 }
@@ -124,7 +125,7 @@ void Game::MoveBlockDown()
 
 bool Game::IsBlockOutside()
 {
-    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    vector<Position> tiles = currentBlock.GetCellPositions();
     for (Position item : tiles)
     {
         if (grid.IsCellOutside(item.row, item.column))
@@ -153,7 +154,7 @@ void Game::RotateBlock()
 
 void Game::LockBlock()
 {
-    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    vector<Position> tiles = currentBlock.GetCellPositions();
     for (Position item : tiles)
     {
         grid.grid[item.row][item.column] = currentBlock.id;
@@ -174,7 +175,7 @@ void Game::LockBlock()
 
 bool Game::BlockFits()
 {
-    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    vector<Position> tiles = currentBlock.GetCellPositions();
     for (Position item : tiles)
     {
         if (grid.IsCellEmpty(item.row, item.column) == false)

@@ -1,4 +1,5 @@
 #include "block.h"
+using namespace std;
 
 Block::Block()
 {
@@ -11,7 +12,7 @@ Block::Block()
 
 void Block::Draw(int offsetX, int offsetY)
 {
-    std::vector<Position> tiles = GetCellPositions();
+    vector<Position> tiles = GetCellPositions();
     for (Position item : tiles)
     {
         DrawRectangle(item.column * cellSize + offsetX, item.row * cellSize + offsetY, cellSize - 1, cellSize - 1, colors[id]);
@@ -24,10 +25,10 @@ void Block::Move(int rows, int columns)
     columnOffset += columns;
 }
 
-std::vector<Position> Block::GetCellPositions()
+vector<Position> Block::GetCellPositions()
 {
-    std::vector<Position> tiles = cells[rotationState];
-    std::vector<Position> movedTiles;
+    vector<Position> tiles = cells[rotationState];
+    vector<Position> movedTiles;
     for (Position item : tiles)
     {
         Position newPos = Position(item.row + rowOffset, item.column + columnOffset);

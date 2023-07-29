@@ -1,6 +1,7 @@
 #include "grid.h"
 #include <iostream>
 #include "colors.h"
+using namespace std;
 
 Grid::Grid()
 {
@@ -28,9 +29,9 @@ void Grid::Print()
     {
         for (int column = 0; column < numCols; column++)
         {
-            std::cout << grid[row][column] << " ";
+            cout << grid[row][column] << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
